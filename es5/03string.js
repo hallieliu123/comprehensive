@@ -27,9 +27,9 @@ const { log } = console;
     //15. str.toUpperCase(); // 返回新字符串，原字符串不变
     //16. str.trim(); // 返回去除首尾所有空格的新字符串，原字符串不变
 
-    // 扩展：17.offsetParent
+    // 扩展：17.offsetParent 
 }
-{
+{   // 18 
     //数字类型的英文标识：number;对应强制类型转换函数：Number();
     //字符串类型的英文标识：string；对应强制类型转换函数：String();
     //布尔类型的英文标识：boolean；对应强制类型转换函数：Boolean();
@@ -43,7 +43,26 @@ const { log } = console;
     //转换成功：从头到尾全部需要检查，如果都是数字，则可以成功转换。
     //转换失败：从头到尾全部需要检查，一旦有一个是非数字，就会转换失败。
 
-    
+    // 19 包装对象
+    // 什么是包装对象 ？ 
+    //  --> String Number Boolean 都有自己的包装对象。
+    //  -->像 str.substring(),charAt()等方法全是在String包装对象上的。使用的时候，包装对象是继承的String.prototype上的这些方法。
+    // 包装对象的使用 ？
+    {
+        let str = 'abc';
+        str.charAt(0); // 这里会自动创建一个包装对象，使用完之后包装对象即刻消失。
+
+        let str1 = 'efg';
+        str1.number = 10;  // 这里会自动创建一个包装对象，使用完之后包装对象即刻消失。
+        log(st1.number) // undefined   因为上一步用到的包装对象已经消失了，这里是重新创建的新包装对象，新包装对象上没有number属性
+        // 所以要给包装对象添加方法是这样添加,添加的String构造函数的原型上
+        String.prototype.getLastVal = function(){
+            // ...
+        }
+    }
+
+
+
 	// var str = "123ab";
 	// var num1 = parseInt(str);
 	// console.log(typeof(num1));  // number

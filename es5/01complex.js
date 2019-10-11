@@ -21,7 +21,6 @@
 
 // typeof   undefined | string  | number  |  Boolean  |  object  |   function
 
-
 // 数据类型     
 // 基本数据类型：string,number,undefined,null(空对象指针),boolean;
 // 引用数据类型：Object (Date, Array, Math, set, map, regExp 等等);
