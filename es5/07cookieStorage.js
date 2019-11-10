@@ -38,7 +38,7 @@ const { log } = console;
 //1.什么是session  
 // session是服务端用来存储用户信息的，服务端会生成一个session_id给客户端，客户端也是用cookie进行保存的。
 
-// webStorage  
+// webStorage     
 //1.什么是webStorage  
 // 也是客户端用来存储数据的，存储大小5M;分为sessionStorage和localStorage  
 // webStorage只在客户端存在，不参与服务端通信。

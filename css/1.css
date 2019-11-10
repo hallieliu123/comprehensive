@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.box{
+    width: 500px;
+    height:500px;
+    border: 1px solid red;
+}
+.box1{
+    width: 100px;
+    height: 100px;
+    border:1px solid rgb(54, 17, 223);
+    margin-top: 50%; /* margin 百分比的设置都是相对于父元素的 */
+    margin-left: 50%;
+    transform: translate(-50%,-50%); /* transform中translate百分比的设置都是相对自己的 */
+}
+
+
+
+
+

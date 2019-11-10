@@ -1,0 +1,165 @@
+1.标签语意化
+    理解:  1.语意化标签能够使网页内容结构化，结构更清晰，便于浏览器和搜索引擎解析。 
+          2.搜素引擎爬虫依赖于标签来确定上下文和各个关键字的权重，有利于seo。
+    主要语意化标签有：header,footer,nav,article,h1-h6,aside,section
+
+2.seo: 
+    1.给seo页面设置不同title,meta标签添加keywords和description的content描述，img标签设置alt,title属性，rel属性设置nofollow。
+      尽量使用语意化标签
+    2.使用服务端渲染，客户端请求时已携带页面所需数据。
+
+3.html标签
+    div h p dl dt dd ul li
+    span, b,strong em,i 
+    a:link :hover :active :visited
+    &nbsp; &gt &lt; &copy
+    ins, del
+    sup,sub
+    hr br
+4.css
+    1.css样式引入方式有4种，内联样式级别最高，内部样式与外部样式谁在后面谁级别高；
+    2.选择器: 1id,2class,3元素，4伪类，5包含选择器，6群组选择器， 7通配符
+    选择符权重:  内联样式 1000   
+               id   0100
+               class,伪类选择器,属性选择器 0010
+               元素选择器  0001
+               包含选择器  0000
+               群组选择器: 各选择器权重之和
+5.  1.text-overflow: ellipsis; 设置...
+      overflow: hidden; 
+      white-space: nowrap;
+    
+    2.background-position: 水平方向 垂直方向;background-size: 水平方向 垂直方向;
+
+    3.position: 定位
+        static: 默认属性值，无改变.
+        relative: 相对自身位置的定位，不脱离文档流.( 原来位置依然占用 )
+        absolute: 相对有定位的父级或者祖先级的定位，没有就以body为参照；脱离文档流.
+        fixed: 相对浏览器窗口的绝对定位,脱离文档流.
+    { position: absolute;left: 50%;top: 50%;margin-left: -50px; margin-top: -50px; }
+    { margin-top: 50%; margin-left:50%; transform:translate(-50%,-50%); }
+6. css3
+    1.前缀: 一些新的css3属性还未成为W3C标准，是浏览器的私有属性，所以要加一些前缀；
+        -webkit- 谷歌/safri  |  -moz- firefox  |  -ms-  IE    |  -o- opera
+    2.选择器:
+            属性选择器:  1.E[attr]  选择匹配E元素，并且包含attr属性的  2.E[att^=val]   选择匹配E元素，包含attr属性并且属性值以val开头 3.E[att$=val]
+                        4.E[att*=val]
+            结构性伪类选择器: 1.:first-child  :nth-child(n)  :last-child  :first-of-type主要用于定位父元素下的某类选择器  nth-of-type(n)  :last-of-type
+            :checked  :disabled   
+    3.弹性盒模型:
+       1.display:-webkit-flex;(父元素设置)
+       2.-webkit-flex: 1;(子元素设置占比)
+       3.flex-direction: column | row;
+
+    4.怪异盒模型
+        box-sizing: content-box | padding-box | border-box; 宽高包括内容 | 内容和padding | 内容和padding和border
+    5.圆角效果  
+        border-radius: 50%; // 圆形
+    6.多背景图
+        background-image: url1,url2...;
+        background-repeat: repeat1 repeat2...;
+        background-position: p1,p2...
+        background-size: s1,s2...
+        background-color: 只有一个;
+    7.嵌入新字体: @font-face
+        @font-face{
+            font-family:'myFront';
+            src: url('')
+        }
+        span{ font-family: 'myFront' }
+    8.2d动画
+        transform: translate(x,y); /* transform中translate百分比的设置是相对自己的,margin设置的百分比是相对父元素的 */
+        transform: scale(倍数x,倍数y)对元素进行缩放
+        tansform: rotate(角度deg); 
+        transform: skew(角度xdeg,角度ydeg) 改变元素形状;
+        tansition: 要有动画过渡效果的属性,持续时间,过度方式(linear,ease,ease-in,ease-out,ease-in-out) 延迟时间;
+    9.3d动画
+        transform-style: perspective-3d; // 建立3D空间
+        perspective: n px; // 设置景深
+        transform属性中：translate,rotate,scale都有3d属性，eg: translateZ();
+    10.关键帧
+        @keyframes animationName{
+            from{}
+            to{}
+        }
+        animation: 关键帧名称，持续时间，运动形式(linear,ease,ease-in,ease-out,ease-in-out) 延迟时间 ...，
+        1animation-name:;
+        2animation-duration:;
+        3animation-play-state: ;播放状态
+        4animation-timing-function:;运动形式
+        5animation-delay:;延迟时间
+        6animation-iteration-count: 数字 | infinite;播放次数
+        7animation-direction:normal | alternate; 播放前重置
+        8animation-fill-mode:backwards|forwards|both;动画结束后的状态；
+    11.scss 增加前缀
+        使用定义 普通: @mixin name($prop,$val){
+            #{$prop}:#{$val};
+            -webkit-#{$prop}:#{$val};
+            -ms-#{$prop}:#{$val};
+            -moz-#{$prop}:#{$val};
+            -o-#{$prop}:#{$val};
+        }
+        div{
+            @include name(transform,translate(10px,10px));
+        }
+
+        @keyframes animationName{ 
+            from{}
+            to{}
+        }
+        @mixin name( $animationName ){
+            @keyframes #{$animationName}{
+                @content;
+            }
+            @-webkit-@keyframes #{$animationName}{
+                @content;
+            }
+            @-moz-@keyframes #{$animationName}{
+                @content;
+            }
+        }
+        div{
+             @include name(animation,animationName 1s 1s linear);
+        }
+    10.响应式
+    <link rel='' media='screen and (min-weidth: 400)' />
+    <link rel='' media='screen and (min-weidth: 400) and (max-width:800px)' />
+    <link rel='' media='screen and (max-weidth: 800)' />
+
+    @media screen and(min-weidth: 400px){}
+    @media screen and(min-weidth: 400px) and (max-width: 800px){}
+    @media screen and(max-width: 800px){}
+
+    横竖屏切换:
+    link标签内可添加 media='all and(orientation: portrait)'
+    link标签内可添加 media='all and(orientation: landscape)'
+
+
+// css 
+// css 中清除浮动：1.给容器底部增加一个空div,添加clear:both属性  2.给容器添加overflow:hidden属性
+// css 中可以继承的属性：(简单总结，不全)
+    字体相关属性：font-family,font-weight,font-size,font-style...
+    文本系列属性：line-height,text-align,color ...
+    其他属性：visibility,cursor,opacity
+// css 中边界折叠问题  
+
+
+
+
+// css 中知道div宽设置div高的问题  xxx
+// 浏览器执行动画卡帧问题      xxx
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
