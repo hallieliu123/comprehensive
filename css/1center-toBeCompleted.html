@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+   <style>
+       /*
+        margin/padding 百分比设置都是相对于父元素的，并且无论是对margin/padding中left/right百分比设置，还是对margin/padding中top/bottom百分比
+        设置都是相对于父元素的 width 来的 ！！！
+       */
+       * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 500px;
+            height: 500px;
+            border: 1px solid red;
+        }
+        .box1 {
+            width: 100px;
+            height: 100px;
+            border: 1px solid rgb(54, 17, 223);
+            margin-top: 50%; /* margin 百分比的设置都是相对于父元素的宽度计算的 */
+            margin-left: 50%;
+            transform: translate(-50%,-50%); /* transform中translate百分比的设置都是相对自己的 */
+        }
+   </style>
+</head>
+<body>
+    <div class='box'>
+        <div class='box1'></div>
+    </div>
+</body>
+</html>
