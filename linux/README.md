@@ -24,7 +24,43 @@ d. Deepin: 中国发行，主要对一些优秀产品进行集成和配置。
 e. Debian: 1993创立，迄今为止最遵循GNU规范的linux发行版。
 f. Ubuntu: Debian操作系统的后继或一个分支。  
 * Linux 操作系统的两种界面：命令行界面(类DOS系统)，图形界面(类Windows系统).  
-主流的桌面管理器有：Gnome(CentOs默认的图形界面桌面管理器),XDE,XFCE
+主流的桌面管理器有：Gnome(CentOs默认的图形界面桌面管理器),XDE,XFCE  
+Gnome,KDE,Unity这些桌面管理器都是基于 X SERVER 这个底层软件来显示图形界面的。
+
+3. 虚拟技术和虚拟机
+* 虚拟技术: 一种通过组合或分区现有计算机资源(如CPU,内存,磁盘空间等)来使这些资源表现为一个或多个操作环境,从而提供优于原有资源配置的技术。
+* 常用的虚拟机: Virtual Box, VMware
+
+4. Linux 基础知识和命令
+a. 命令行  
+* [hallie@localhost~]$: [用户名@主机名 所在目录]权限, $ 普通用户权限, # 超级用户权限
+* whoami: 查看用户名username
+* hostname: 查看主机名hostname
+* sudo su: 用于切换为超级用户 -> exit返回普通用户
+* date: 打印日期
+* ls 命令, -a 参数, ., .., .隐藏文件
+b. 常用快捷键
+
+5. Linux目录介绍(Linux中一切皆文件,Linux只有一个根目录 /)
+* ls /
+* boot: 系统启动所需要的一些文件
+* dev: 接外设备所需的部分文件
+* bin: 一些binary文件
+* etc: et cetera,系统配置的一些文件 
+* home: 所有用户私人目录文件
+* lib: library 被程序所调用的一些库文件
+* media: 通过其子目录文件访问外部设备
+* mnt: mount 用于临时挂载一些装置
+* opt: 用于安装一些软件和插件
+* root: 超级用户的home目录
+* sbin: system binary 系统二进制文件
+* srv: service 网络服务启动后缩写的一些文件
+* temp: 普通用户和程序临时存放文件的位置
+* usr: unix software resoures
+* var: 通常存放一些程序数据,如 log 文件
+
+6. 常用的命令
+
 
 
 
