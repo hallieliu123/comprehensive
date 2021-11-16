@@ -8,7 +8,7 @@ const throttle = (fn, timeout) => {
         if (myTimer) return;
         myTimer = setTimeout(()=>{ 
             fn(...args);
-            myTimer = null;
+            clearTimeout(myTimer);
         },timeout);
     }
 }
