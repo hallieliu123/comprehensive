@@ -63,19 +63,70 @@ b. 常用快捷键
 * pwd命令: 当前所在工作目录
 * which命令: 命令可执行文件的位置,eg: which hostname
 * ls命令:  
--a: 列出所有文件,包括隐藏文件(以.开头)
--l: 列出文件详细信息, 文件权限 - 文件链接数目 - 文件所有者 - 文件所在群组 - 文件字节大小 - 最近一次修改时间 - 文件名称  
--h: human readable, 文件字节大小转为1k/1M 这种形式
+-a: 列出所有文件,包括隐藏文件(以.开头)  
+-l: 列出文件详细信息, 文件权限 - 文件链接数目 - 文件所有者 - 文件所在群组 - 文件字节大小 - 最近一次修改时间 - 文件名称    
+-h: human readable, 文件字节大小转为1k/1M 这种形式  
 -t: 按最近一次修改时间排序
 * cd命令 = cd ~ 回到当前用户的home目录
-* du命令: disk usage 显示当前文件夹下所有目录的大小(包括文件夹内部的目录)
-- s: summary,当前文件夹下所有文件总大小,eg: du -s
-- h: human readable
-- a: 显示当前文件夹下所有文件和目录
-* cat命令:  一次显示所有内容, concatenate  
--n: 加上行标记
--cat -n file1 file2 => 合并file1 file2显示
-* less命令
+* du命令: disk usage 显示当前文件夹下所有目录的大小(包括文件夹内部的目录)  
+-s: summary,当前文件夹下所有文件总大小,eg: du -s  
+-h: human readable  
+-a: 显示当前文件夹下所有文件和目录  
+* cat命令:  一次显示所有内容, concatenate    
+-n: 加上行标记  
+-cat -n file1 file2 => 合并file1 file2显示  
+* less命令: 分页显示内容  
+-空格:下一页  
+-回车:下一行   
+-u: 上半页  
+-d: 下半页  
+-q: 退出  
+-h: 帮助  
+-/: 查找  
+-=: 当前行文件信息  
+* head 命令, 显示文件头部,默认前10行  
+-n: 显示几行参数
+* tail命令: 显示文件结尾, 默认10行  
+-n:显示几行  
+-f:实时追踪文件(比如文件在更改)  
+contrl + c 终止  
+tail -f filename 默认每隔1秒检查一次文件  
+tail -f -s4 filename 默认每隔4秒检查一次文件  
+* touch & mkdir 命令  
+-touch filename1 filename2 创建文件filename1和filename2  
+-mkdir dir1 dir2 创建文件夹dir1和dir2  
+mkdir -p one/two/three 递归创建文件夹
+* cp & mv 命令  
+-cp filename new_filename 在当前目录拷贝filename为新文件new_filename  
+-cp filename dir1 拷贝文件filename到dir文件夹下  
+-cp filename dir1/new_filename 拷贝文件filename到dir文件夹下并重命名为new_filename  
+-拷贝目录 cp -r(recursive)  
+-*通配符 cp *.txt folder  
+-mv filename new_filename 文件重命名  
+-mv filename folder  
+-*通配符 mv *.txt folder
+* rm 命令  
+-rm file1 file2 file3  
+-f 强制删除  
+-r 递归删除  
+-i 删除时通知用户  
+-注意: 不要用root权限去: rm -rf /; rm -rf /*; 或在/目录中 rm -rf *
+* ln 创建链接  
+-链接方式有两种: 物理链接(physical link,硬链接)/符号链接(symbolic link,软链接)  
+-文件存储方式分为3部分, 1文件名(inode) 2文件内容(被分配inode) 3权限  
+-ln file1 file1_new 创建硬链接, 文件内容相同被分配了同样的inode,如果删除file1不会对file1_new产生任何影响, 但修改内容会  
+-ln -s fil1 file1_new 创建软链接, 如果删除file1, file1_new就会成为死链接, 但删除file1_new则对file1没有影响。软链接可以指向目录,硬链接不行
+* 用户和权限  
+-sudo 以root权限运行命令  
+-sudo su 切换为root用户(保存密码)
+-su 切换为root用户(不保存密码), su - 回到 root的home目录
+-useradd user root用户添加普通用户
+-passwd user root用户更改普通用户密码
+-userdel user,-r 加上此参数,同时删除user home目录
+
+
+
+
 
 
 
