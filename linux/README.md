@@ -1,5 +1,5 @@
 
-#### Linux 核心技能与应用  
+#### Linux
 
 1. Linux 系统应用广泛
 * Android系统底层是修改过的Linux内核，IOS/MacOS底层是修改过的Unix(类linux)，微软在Windows系统中引入了WSL(Windows Subsystem for Linux).
@@ -123,16 +123,47 @@ mkdir -p one/two/three 递归创建文件夹
 -useradd user root用户添加普通用户
 -passwd user root用户更改普通用户密码
 -userdel user,-r 加上此参数,同时删除user home目录
+* 群组管理:groupadd,usermod,groups,groupdel,chown,chgrp,chmod
 
+* man,apropos,whatis
 
+* 查找文件:locate,find
 
+* 数据操作,使用正则:grep,sort,wc,uniq,cut
 
+* 输入输出重定向:<,<<  >,>>,2>,2>>,2>&1  建立管道流: |
 
+* 进程和系统监测: w,ps,top
 
+* 管理进程和关闭系统:kill,&,nohup,ctrl+z,bg,fg   halt,reboot,poweroff
 
+* 指定时间执行:at,atq,atrm,sleep,&&,||,;
 
+* 定时任务:crontab
 
+* 文件归档,压缩和解压:tar,gzip,gunzip,bzip2,bunzip2
 
+* 对称加密,非对称加密,ssh协议,config文件配置ssh,ssh免密登录配置
+
+* vim 操作
+
+* 文件传输 wget,scp
+
+* shell基本语法
+
+* 管理服务器和服务:systemctl,journalctl,systemd-analyze
+
+* 安装和配置apache
+
+* 防火墙配置:firewall-cmd
+
+* SElinux 管理
+
+* DHCP动态和静态分配ip
+
+* 使用https,配置数字证书
+
+* 安装配置tomcat,jenkins,nginx
 
 
 
