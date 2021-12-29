@@ -116,7 +116,7 @@ mkdir -p one/two/three 递归创建文件夹
 -文件存储方式分为3部分, 1文件名(inode) 2文件内容(被分配inode) 3权限  
 -ln file1 file1_new 创建硬链接, 文件内容相同被分配了同样的inode,如果删除file1不会对file1_new产生任何影响, 但修改内容会  
 -ln -s fil1 file1_new 创建软链接, 如果删除file1, file1_new就会成为死链接, 但删除file1_new则对file1没有影响。软链接可以指向目录,硬链接不行
-* 用户和权限  
+* 用户和权限
 -sudo 以root权限运行命令  
 -sudo su 切换为root用户(保存密码)
 -su 切换为root用户(不保存密码), su - 回到 root的home目录
@@ -139,7 +139,7 @@ mkdir -p one/two/three 递归创建文件夹
 
 * 指定时间执行:at,atq,atrm,sleep,&&,||,;
 
-* 定时任务:crontab
+* 定时任务:crontab,cron
 
 * 文件归档,压缩和解压:tar,gzip,gunzip,bzip2,bunzip2
 
