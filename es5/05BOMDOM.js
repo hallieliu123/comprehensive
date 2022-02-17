@@ -4,7 +4,7 @@ const { log } = console;
     //1. let con = window.confirm("亲，您确认要放弃操作吗？");
     // log(con); // true| false
 
-    //2. window.open("sub.html","win1");//window.可以省略。
+    //2. window.open("sub.html","win1");//window.可以省略, 返回打开的window对象，可操作, let test = window.open("sub.html","win1"); => test.close(); test.location.href = '';
     //3. setInterval();setTimeout();
     //4. clearInterval();
     //5. window.close();
@@ -13,6 +13,7 @@ const { log } = console;
     //8.window.screen 该属性保存着笔记本的屏幕信息，及当前窗口与屏幕的关系信息
     //9.window.location (href,host,hash,pathname,search)
     //10.window.navigator.userAgent 返回浏览器名称字符串
+    //11.el.scrollIntoView(); // true元素顶端与可视区顶端对齐, false元素底端与可视区底端对齐 
 }
 {
     // DOM: document object model 文档对象模型
@@ -23,7 +24,7 @@ const { log } = console;
     //3. document.getElementsByTagName();
     //4. document.getElementsByName();
 
-    //5. oInput.getAttribute('value') = oInput.value; 获取dom节点参数属性的值;getAttribute('style') 只能获取内联样式
+    //5. oInput.getAttribute('value') = oInput.value; 获取dom节点参数属性的值;getAttribute('style') 只能获取内联样式; getAttribute('myCustom')还可以获取自定义属性的值，oInput.myCustomAttr不可以
     //6. oInput.setAttribute('value','val') == oInput.value = val;获取dom节点参数属性的值
     //7. oInput.removeAttribute('value');
     let oDiv = document.getElementById('box');
@@ -43,11 +44,13 @@ const { log } = console;
     //11.oDiv.style   只能获取内联样式属性
     //12.oDiv.style.cssText='width:100px;height:100px;border:1px solid #000' 
     //13.window.getComputedStyle(dom节点) 获取所有该节点的style属性(内联样式，外联样式属性都可获取)
-    //14.oDiv.children,返回所有子节点类数组
+    //14.oDiv.children,返回所有子节点 类数组
     //15.oDiv.nodeType 1标签节点，2属性oDiv.attributes['id'].nodeType，3文本节点
     //16.oDiv.children[1].nodeValue 只能是文本节点才可以使用，用来修改或者获取
+    // nodeValue 标签节点返回 null; oDiv.attributes['id']属性节点返回 属性值 文本节点返回 文本值
     //17.oDiv.parenNode 获取父节点
     //18.oDiv.firstElementChild | oDiv.lastElementChild  获取第一个或者最后一个标签子节点
+    // firstChild; lastChild 不分是标签节点 还是文本节点
     //19.oDiv.previousElementSibling | oDiv.nextElementSibling 
     
     // 
@@ -111,13 +114,12 @@ const { log } = console;
 
     //22 **event.clientX;event.clientY  以可视区左上角为原点,鼠标的位置
     //23 **event.offsetX;event.offsetY  以事件源左上角为原点，鼠标的位置 
-    //24 event.screenX;event.screenY  以窗口左上角为原点，鼠标的位置 
+    //24 event.screenX;event.screenY    以屏幕左上角为原点，鼠标的位置
 
     //25 event.srcElement = event.target 事件源dom节点
     //26 event.fromElement / event.toElement 返回dom节点
     
-    //28 event.returnValue = false; 阻止默认行为; (可行)
-    //   event.preventDefalut(); 阻止默认行为; (可行)
+    //28 event.preventDefalut(); 阻止默认行为; (可行)
     // let oA = document.getElementById('my-link');
     // 当我们点击超链接会做两件事 
     // 1.触发onclick  
@@ -222,11 +224,43 @@ const { log } = console;
     // window.addEventListener('scroll',()=>{
     //     fixedPosition(el);
     // },false);
-
-    
-
 }
-
+function moveInBox(container, el) {
+    el.onmousedown = (evt) => {
+      // 记录鼠标相对事件源的位置
+      const offsetX = evt.offsetX;
+      const offsetY = evt.offsetY;
+      el.onmousemove = (evt) => {
+        // 计算事件源随鼠标移动的top, left
+        const doc = document.documentElement || document.body;
+        const top = (doc.scrollTop + evt.clientY - offsetY);
+        const left = (doc.scrollLeft + evt.clientX - offsetX);
+        // 设置事件源的left和top: 条件 top 必须 >= container的offsetTop && top 必须 <= container的offsetTop + (container的高度 - box的高度); left值同理
+        const minTop = container.offsetTop;
+        const minLeft = container.offsetLeft;
+        const maxTop = minTop + (parseInt(getComputedStyle(container).height) - parseInt(getComputedStyle(el).height));
+        const maxLeft = minLeft + (parseInt(getComputedStyle(container).width) - parseInt(getComputedStyle(el).width));
+        if(top <= minTop) {
+          el.style.top = minTop + 'px';
+        } else if(top >= maxTop) {
+          el.style.top = maxTop + 'px';
+        } else {
+          el.style.top = top + 'px';
+        }
+        if(left <= minLeft) {
+          el.style.left = minLeft + 'px';
+        } else if(left >= maxLeft) {
+          el.style.left = maxLeft + 'px';
+        } else {
+          el.style.left = left + 'px';
+        }
+      }
+    };
+    // onmouseup时, 释放onmousemove事件
+    el.onmouseup = () => {
+      el.onmousemove = null;
+    }
+  }
 
 
 

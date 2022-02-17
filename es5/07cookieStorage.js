@@ -1,5 +1,5 @@
 const { log } = console;
-
+// 浏览器本地存储的方式: 
 // cookie
 //1.什么是cookie
 //  cookie是客户端用来存储用户信息的。因为http协议是无状态协议，网页一旦关闭，客户端与服务端链接就断开了，再打开就
@@ -8,7 +8,7 @@ const { log } = console;
 //2.cookie的的特点
 {
     // 每次同源的http请求会自动携带，因此会占用带宽
-    // 每个cookie大小4kb,同域名最多储存50个
+    // 每个cookie大小4kb,同域名最多储存20个
     // 可设置过期时间，或者手动删除      
 }
 
@@ -24,7 +24,7 @@ const { log } = console;
         let cookies = document.cookie.split('; ');
         for(let item of cookies){
             if(item.indexOf(key)>-1){
-                return item.substring(`${key}=`.length);
+                return item.substring(` ${key}=`.length);
             }
         }
         return false;
@@ -41,7 +41,7 @@ const { log } = console;
 // webStorage     
 //1.什么是webStorage  
 // 也是客户端用来存储数据的，存储大小5M;分为sessionStorage和localStorage  
-// webStorage只在客户端存在，不参与服务端通信。
+// webStorage只在客户端存在，不参与服务端通信, 不像Cookie那样每次HTTP请求都会被携带
 // sessionStorage有效期仅为一次session会话，页面关闭就没了。存储数据页面间也不共享。  
 // localStorage数据存储页面间共享，有效期永久，只能手动删除。  
 

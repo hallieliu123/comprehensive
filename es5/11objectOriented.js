@@ -136,7 +136,8 @@ const { log } = console;
 }
 // 2 函数的原型属性 prototype
 
-// 3 Object.getPrototypeOf()
+// 3 Object.getPrototypeOf() 这个函数可以得到实例对象的原型
+// Person.prototype.isPrototypeOf()检测该原型是否属于某对象
 // 4 Object.setPrototypeOf(,)
 // 5 obj.hasOwnProperty('') obj是否拥有‘’这个实例属性
 // 6 ‘name’ in obj obj是否拥有name属性(实例属性或者原型属性)
@@ -192,15 +193,22 @@ const { log } = console;
 
 // c 使用apply|call组合继承  
 {
-    function A(a,b){
+    function A(a){
         this.a = a;
-        this.b = b;
+        this.b = 'share';
     }
     function B(a,b,c,d){
-        A.apply(this,[a,b]);
+        A.call(this, a);
         this.c = c;
         this.d = d;
     }
+    B.prototype = new A();
+    function C(e,f,g){
+        A.call(this, e);
+        this.f= f;
+        this.g = g;
+    }
+    C.prototype = new A();
     let b1 = new B('a','b','c','d');
     log(b1);
 }

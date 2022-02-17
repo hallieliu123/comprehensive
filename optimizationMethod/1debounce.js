@@ -10,6 +10,6 @@ const debounce = (fn, timeout) => {
     }
 }
 
-// 使用场景举例：
+// 使用场景举例:
 // 1.输入框搜索联想
 // 2.窗口 resize， 窗口resize完再计算窗口大小

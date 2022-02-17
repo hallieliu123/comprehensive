@@ -8,8 +8,8 @@
 
 // %, ++, --, 
 
-// parseInt('string',10),将 字符串 转换为 n 进制的整数；
-// parseFloat('参数'),将入参转为浮点数
+// parseInt('string',10),是把其它类型转换为 n 进制的整数;
+// parseFloat('参数'),是把其它类型转换为浮点型
 
 // Math.round(),Math.floor(), Math.ceil()
 // Math.pow(m,n), m的n次方
@@ -17,13 +17,13 @@
 // Math.max(1,2,5,0);Math.min(10,7,9);
 // Math.abc(); 绝对值  
 // Math.sqrt(); 开平方根
-// Number.tofixed( num ) 
+// Number.tofixed(num) 变量必须是number类型,并且返回为字符串,自动四舍五入
 
-// typeof   undefined | string  | number  |  Boolean  |  object  |   function
+// typeof 返回类型 undefined | string  | number  |  Boolean  |  object  |   function  | symbol
 
-// 数据类型     
-// 基本数据类型：string,number,undefined,null(空对象指针),boolean;
-// 引用数据类型：Object (Date, Array, Math, set, map, regExp 等等);
+// 数据类型
+// 基本数据类型: string,number,undefined,null(空对象指针),boolean;symbol是原始值,symbol实例是唯一的,不可变的,它主要用来确保对象属性使用唯一的标识符,不会发生属性冲突的风险
+// 引用数据类型: Object (Date, Array, Math, set, map, regExp 等等);
 
 
 const { log } = console;
@@ -134,6 +134,7 @@ const { log } = console;
 
     // 求 n 的阶乘  5! = 1*2*3*4*5;
     function factorial1( n ){
+
         let num = 1;
         for(var i=1;i<=n;i++){
             num = num*i;
@@ -142,13 +143,13 @@ const { log } = console;
     }
     function factorial2(n){
         if( n <=1 ) return 1;
-        return n*factorial1(n-1);
+        return n*factorial2(n-1);
     }
     // log('factorial1--->',factorial1(5));
     // log('factorial2--->',factorial2(5));
 }
 {   
-    // 斐波那契数列: 1,1,2,3,5,8 ...  
+    // 斐波那契数列: 1,1,2,3,5,8 ...
     // 求前40个斐波那契数列
     function Fibonacci1(num){
         let str = '1,';
@@ -169,10 +170,10 @@ const { log } = console;
     // log(Fibonacci2(10));
     // 求89是斐波那契数列的第几个
     function* Fibonacci3(){ // 数列中所有的值
-        let [prev,cur] = [1,1];
+        let [prev,cur] = [0,1];
         for(;;){
             [prev,cur] = [cur,prev+cur];
-            yield cur;
+            yield cur;//[1,2,3,5]
         }
     }
     function searchVal(num){
@@ -192,7 +193,7 @@ const { log } = console;
         let count=1;
         for(;;){
             count++;
-            [ prev,cur ] = [cur,prev+cur];
+            [prev, cur] = [cur,prev+cur];
             if( cur == num ) break;
         }
         return count;
@@ -220,7 +221,7 @@ const { log } = console;
             height = parseFloat(height)/2;
             sum += height*2;
         }
-        return [height,sum];
+        return [height, sum];
     }
     // log( count1(100) );
     /**

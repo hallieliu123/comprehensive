@@ -3,9 +3,10 @@
 // addEventListener('click',()=>{},useCapture);第3个参数表示，使用捕获还是冒泡，true捕获，false是冒泡
 // removeEventListener('click',那个函数,useCapture);
 
-// 事件捕获 | 事件冒泡 
+// 事件捕获 | 事件冒泡
 // 1.对于非事件源,先捕获，后冒泡
 // 2.对于事件源,先注册冒泡就先执行冒泡，先注册捕获就先执行捕获
+// (2022/2/16 chrome浏览器测试现在都是先捕获后冒泡，不区分1，2)
 // let o1 = document.getElementById('grandpa');
 // let o2 = o1.firstElementChild; 
 // let o3 = o2.firstElementChild; 

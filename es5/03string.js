@@ -18,11 +18,12 @@ const { log } = console;
     //6. str.lastIndexOf(); // 找到返回下标,找不到返回 -1
     //7. str.search(); // 返回找到的第一个值的下标，可用正则表达式 //i忽略大小写查找，g无效。找不到返回-1 
     //8. str.match(//ig); // 返回匹配到的数组,元素为所有匹配的值
-    //9. str.replace(//ig,'')  // 返回替换后的新数组,原数组不变
+    //9. str.replace(//ig,'')  // 返回替换后的新字符串,原字符串不变
     //10. str.replace('to replace','replacement')  // 返回替换后的新数组,原数组不变  
     //11. '+'号运算符：1. 'abc'+1+2   2.  1+2+'abc'
-    //12. str.substring(start,end) 第二个参数【截止到下标-1的地方,可选】,返回截取的新字符串，原字符串不变
-    //13. str.split(''); // 返回根据参数拆分的数组
+    //12. str.substring(startIndex,endIndex) 第二个参数【截止到下标-1的地方,可选】,返回截取的新字符串，原字符串不变
+    // str.substr(startIndex, length); 
+    //13. str.split(''); // 返回根据参数拆分成数组
     //14. str.toLowerCase(); // 返回新字符串，原字符串不变
     //15. str.toUpperCase(); // 返回新字符串，原字符串不变
     //16. str.trim(); // 返回去除首尾所有空格的新字符串，原字符串不变
@@ -85,8 +86,8 @@ const { log } = console;
     let str = '  aAbca  ';
     // log(str.charAt(0)); // a
     // log(str.charAt(1)); // A
-    // log(str.charCodeAt(0)); // 97
-    // log(str.charCodeAt(1)); // 65
+    // log(str.charCodeAt(0)); // 97 a
+    // log(str.charCodeAt(1)); // 65 A
     // log(String.fromCharCode(65))
     // log(str.lastIndexOf('a'));
     // log(str.search(/a/i)); 
@@ -126,8 +127,8 @@ const { log } = console;
 {  
     // == 会进行类型转换   === 不会进行类型转换
     let str1 = '123';
-    let str2 = new String('123');
-    let str3 = String('123');
+    let str2 = new String(123);
+    let str3 = String(123);
     // log(str1 == str2 ); // true
     // log(str1 === str2 ); // false
     // log(str1 == str3 ); // true
@@ -177,29 +178,3 @@ const { log } = console;
     }
     // log(selectNum());
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

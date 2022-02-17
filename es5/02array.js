@@ -83,7 +83,7 @@ const { log } = console;
 {
     // 循环右移 k 位 arr = [12,23,34,45,56,67,78,89,100];  // 8 -> 1   7 -> 8   6 -> 7  5 -> 6... 1 -> 2
     // 两种方法： 1.放入新数组   2.在原数组上改: 先移动一位，想移动几位就循环几次
-    // 天作孽，犹可违；自作孽，不可活。
+    // 天作孽，犹可违；自作孽，不可活.
     function moveItem( arr,k ){  
         for(let i=0;i<k;i++){   
             let last = arr[arr.length-1];  
@@ -220,8 +220,7 @@ const { log } = console;
 {
     // 随机生成1个 n 位以内的数  12345
     function getRandom(n){
-        let ran = parseInt(Math.random()*n);
-        log('ran--->',ran);
+        let ran = parseInt(Math.pow(10, n) * Math.random());
         let arr = [];
         do{
             let temp = ran%10;  // 5 4 3 2 1
@@ -252,7 +251,7 @@ const { log } = console;
     // log(arr.push(1,2,3));
     // log('arr--->',arr);
 
-    // unshift();返回数组push后的数组长度;原数组改变 
+    // unshift();返回数组unshift后的数组长度;原数组改变 
 
     // log(arr.unshift(1,2,3));
     // log('arr--->',arr);
@@ -272,7 +271,7 @@ const { log } = console;
     // log(arr.splice(1,1,10,11));// 参数1: 从第几项开始，入参2:删除几项，  入参3.4.5.:插入的元素
     // log(arr);
    
-    // slice(begin,end);第二个参数可选，提取原数组元素返回新数组，原数组不变
+    // slice(beginIndex,endIndexNotInclude);第二个参数可选，提取原数组元素返回新数组，原数组不变
 
     // log(arr.slice(1));
     // log(arr);
@@ -296,7 +295,7 @@ const { log } = console;
     // log(arr1.sort((a,b)=>a-b));
     // log(arr1);
     // 模拟sort函数; 
-    function mySort(arr,compare){
+    function mySort(arr,compare){ // [8,1,6,3,2,5,9]
         for(let i=0;i<arr.length-1;i++){ // 实际只剩一个数的时候就不用比了
              for(let j=0;j<arr.length-i-1;j++){  
                 if(compare(arr[j],arr[j+1])>0){
@@ -308,7 +307,7 @@ const { log } = console;
     }
     const compare = (a,b)=>a-b;
     // log(mySort(arr1,compare));
-    // log(mySort([8,1,6,3,2,5,9],compare));
+    // log(mySort([8,1,6,3,2,5,9],compare));                   
 
     // reverse();原数组改变，返回原数组；
 }
@@ -334,13 +333,17 @@ const { log } = console;
 {
     // for, for..in,for..of --> break,continue
     // reduce,map,forEach,some,every,filter(返回符合条件的一个新数组);
-    let arr = ['a','b','c','d','e'];
-    // for(let key in arr){
-    //     if(key=='1'){
+    // let obj = {'a': 1, 'b': 2, 'c': 3};
+       let arr = ['a','b','c','d','e'];
+    // for(let index in arr){
+    //     if(index=='1'){
     //         continue;
     //     }
     //     log(arr[key]);
     // }
+    // for(let key in obj){
+    //     console.log(obj[key]);
+    //   }
     // for(let key of arr.keys()){
     //     if(key=='1'){
     //         continue;
@@ -363,43 +366,3 @@ const { log } = console;
     let a3 = arr.filter(item=>item=='c');
     // log(a3);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

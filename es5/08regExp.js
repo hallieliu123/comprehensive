@@ -7,7 +7,7 @@ let regExp2 = /study/ig;
 
 // 2.检测的两种方法
 // regExp.test(str); 找到返回true;找不到则返回false;
-// regExp.exec(str); 找到返回一个数组,找不到返回null
+// regExp.exec(str); 找到返回一个数组,找不到返回null; 如果regExp有g参数,则多次调用每次会返回下一个匹配项数组
 
 {
     let str = 'study good good study';
@@ -28,7 +28,7 @@ let regExp2 = /study/ig;
 
 //1 * 匹配前面表达式0次或多次
 {
-    // var regExp = /ga*gle/; //限定的规则是：在g和gle中间可以出现任意多个a字符
+  // var regExp = /ga*gle/; //限定的规则是：在g和gle中间可以出现任意多个a字符
 	// var str="i am ggle";
 	// log(regExp.test(str));//true
 	// str="i am gagle";
@@ -36,7 +36,7 @@ let regExp2 = /study/ig;
 	// str="i am gaagle";
 	// log(regExp.test(str));//true
 	//  str="i am gabcgle";
-    // log(regExp.test(str));//false
+  // log(regExp.test(str));//false
     
     // var regExp = /g*gle/; //
 	// //自己标注*：*前只有一个字符时，涵盖两个意思:1).可出现0个---多个g,2).可以出现0个---多个其他字符；
@@ -113,7 +113,9 @@ let regExp2 = /study/ig;
 //18 \w 匹配字母数字或下滑线,同[0-9a-zA-Z_]
 
 
-
+//19 [\s\S]匹配所有。\s 是匹配所有空白符，包括换行，\S 非空白符，不包括换行。
+//20 贪婪匹配 *, + 限定符 都是贪婪的，都会尽可能多的匹配文字
+//21 非贪婪匹配  *, + 限定符 都是贪婪的，都会尽可能多的匹配文字，在其后面加上 ? 就可以实现非贪婪匹配
 
 
 

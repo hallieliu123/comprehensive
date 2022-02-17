@@ -1,0 +1,6 @@
+- 1. 部署多个服务, 定义在 docker-compose.yml
+- 2. centOS 安装 docker
+- 3. 以 nginx 为例  
+     -docker pull nginx 拉取 nginx 镜像  
+     -docker images nginx 查看 nginx 镜像信息  
+     -docker run
