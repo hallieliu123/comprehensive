@@ -19,12 +19,12 @@
 // Math.sqrt(); 开平方根
 // Number.tofixed(num) 变量必须是number类型,并且返回为字符串,自动四舍五入
 
-// typeof 返回类型 undefined | string  | number  |  Boolean  |  object  |   function  | symbol
 
 // 数据类型
 // 基本数据类型: string,number,undefined,null(空对象指针),boolean;symbol是原始值,symbol实例是唯一的,不可变的,它主要用来确保对象属性使用唯一的标识符,不会发生属性冲突的风险
 // 引用数据类型: Object (Date, Array, Math, set, map, regExp 等等);
 
+// typeof 返回类型 undefined | string  | number  |  Boolean  |  object  |   function  | symbol
 
 const { log } = console;
 
@@ -154,7 +154,7 @@ const { log } = console;
     function Fibonacci1(num){
         let str = '1,';
         let [prev,cur] = [0,1];
-        for(let i=1;i<=num;i++){
+        for(let i=1;i<=num;i++){ // [0, 1], [1,2], [2,3]
             [prev,cur] = [cur,cur+prev];
             str += `${ cur },`;
         }
@@ -229,11 +229,11 @@ const { log } = console;
         (1)这四位数是11的倍数;    
         (2)a, b, c, d均是小于10的互不相同的自然数; 
         (3)b + c = a; 
-        (4)bc是完全平方数。
+        (4)bc是完全平方数
     */
     function searchVal(){  // 1112/1000  
         let arr = [];  
-        for(let i = 1000;i<=9999;i++){   // [1012, 4048, 5148, 5412, 9097]
+        for(let i = 1000;i<=9999;i++){   // [5148, 5412]
             let a = parseInt(i/1000); // 千位数 a 
             let b = parseInt(i%1000/100);  // 百位数 
             let c = parseInt(i%100/10); // 十位数  
@@ -248,7 +248,7 @@ const { log } = console;
     /**
      * 求Sn=a+aa+aaa+……+aa……a之值,其中a是一个数字,n是文本框输入的。
      */
-    function sum1(n,a){  
+    function sum1(n,a){
         let sum = 0; 
         // 加到最后一个值时 x 2  
         let str = '';  

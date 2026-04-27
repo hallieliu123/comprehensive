@@ -12,7 +12,7 @@ const { log } = console;
     let str = 'abc';
     //1. str.length;      // 返回字符串的长度  
     //2. str.charAt( index );  // 返回 index 上的字符  
-    //3. str.charCodeAt( index );  // 返回  index 上的unicode码   
+    //3. str.charCodeAt( index );  // 返回  index 上的unicode码       
     //4. String.fromCharCode(65);  // 字符串静态属性，返回编码对应的字符
     //5. str.indexOf();  // 找到返回下标,找不到返回 -1
     //6. str.lastIndexOf(); // 找到返回下标,找不到返回 -1
@@ -21,7 +21,7 @@ const { log } = console;
     //9. str.replace(//ig,'')  // 返回替换后的新字符串,原字符串不变
     //10. str.replace('to replace','replacement')  // 返回替换后的新数组,原数组不变  
     //11. '+'号运算符：1. 'abc'+1+2   2.  1+2+'abc'
-    //12. str.substring(startIndex,endIndex) 第二个参数【截止到下标-1的地方,可选】,返回截取的新字符串，原字符串不变
+    //12. str.substring(startIndex,endIndex) 第二个参数【截止到下标-1的x地方,可选】,返回截取的新字符串，原字符串不变
     // str.substr(startIndex, length); 
     //13. str.split(''); // 返回根据参数拆分成数组
     //14. str.toLowerCase(); // 返回新字符串，原字符串不变
@@ -64,21 +64,21 @@ const { log } = console;
 
 
 
-	// var str = "123ab";
-	// var num1 = parseInt(str);
+	// let str = "123ab";
+	// let num1 = parseInt(str);
 	// console.log(typeof(num1));  // number
 	// console.log(num1);  // 123
 	
-	// var num2 = Number(str);
+	// let num2 = Number(str);
 	// console.log(typeof(num2)); // number
 	// console.log(num2);  // NaN
     
-    // var str = "123.45.67.ab";
-	// var num1 = parseFloat(str);
+    // let str = "123.45.67.ab";
+	// let num1 = parseFloat(str);
 	// console.log(typeof(num1)); // number
 	// console.log(num1);  // 123.45
 	
-	// var num2 = Number(str);
+	// let num2 = Number(str);
 	// console.log(typeof(num2)); // number
 	// console.log(num2);  // NaN  
 }
@@ -107,20 +107,20 @@ const { log } = console;
 {
     
 /*
-	var str ;//在栈中申请空间
+	let str ;//在栈中申请空间
 	
 	new String("hello");
 	//定义了一个字符串变量，这是引用类型。对象类型。申请了空间（两块空间）。//
 	//new运算符的意思就是，在堆区中申请内存空间
 	*/
-	// var str = new String("hello");  
+	// let str = new String("hello");  
 	//在栈区中申请了内存空间，命名为str。
 	//在堆区中申请内存空间（放入hello）。并且把堆区内存空间的首地址，赋给了。str；
 	
-	// var num = 123;
-    // var str = String(num);//强制类型转换；只会申请栈区内存空间；
+	// let num = 123;
+    // let str = String(num);//强制类型转换；只会申请栈区内存空间；
     
-    // var str;
+    // let str;
 	// str = String(123)+23;
 	// console.log(str); 
 }
@@ -166,7 +166,7 @@ const { log } = console;
     // log(el.offsetParent.id); // 返回最近的有定位的父/祖 元素，没有定位，返回 body
 }
 {
-    // 图片验证码原型  
+    // 图片验证码原型
     let arr=['1','2','3','4','5','7','8','9','0','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o'];
     function selectNum(){
         let arrRan = [];

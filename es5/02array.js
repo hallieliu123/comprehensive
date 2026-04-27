@@ -211,7 +211,7 @@ const { log } = console;
    var arr2 = [1,2,3,4,5,6,11,12,13,14,15,16];  // [1,2,3,4]  [1,2,3,4,5] 2.5
    function myReverse(arr){
         for(let i=0;i<parseInt(arr.length/2);i++){
-            [arr[i],arr[arr.length-i-1]] = [arr[arr.length-i-1],arr[i]]
+            [arr[i],arr[arr.length-i-1]] = [arr[arr.length-i-1],arr[i]];
         }
         return arr;
    }
@@ -297,11 +297,11 @@ const { log } = console;
     // 模拟sort函数; 
     function mySort(arr,compare){ // [8,1,6,3,2,5,9]
         for(let i=0;i<arr.length-1;i++){ // 实际只剩一个数的时候就不用比了
-             for(let j=0;j<arr.length-i-1;j++){  
+            for(let j=0;j<arr.length-i-1;j++){  
                 if(compare(arr[j],arr[j+1])>0){
                     [arr[j],arr[j+1]] = [arr[j+1],arr[j]];
                 }
-             }
+            }
         }
         return arr;
     }
@@ -309,7 +309,7 @@ const { log } = console;
     // log(mySort(arr1,compare));
     // log(mySort([8,1,6,3,2,5,9],compare));                   
 
-    // reverse();原数组改变，返回原数组；
+    // reverse();原数组改变，返回原数组;
 }
 {
     // 数组去重 [1,1,9,4,6,2,9,3]
@@ -366,3 +366,4 @@ const { log } = console;
     let a3 = arr.filter(item=>item=='c');
     // log(a3);
 }
+
