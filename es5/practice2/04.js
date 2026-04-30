@@ -1,6 +1,6 @@
 const {log} = console;
 
-log('new Date()--->', new Date());
+// log('new Date()--->', new Date());
 
 
 
