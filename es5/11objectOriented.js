@@ -1,4 +1,4 @@
-const { log } = console;
+ const { log } = console;
 
 // 面向对象编程（OOP object oriented programming）
 // 定义：用对象的思想去写代码，就是面向对象编程
